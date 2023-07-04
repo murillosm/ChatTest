@@ -170,6 +170,8 @@ class RegisterActivity : AppCompatActivity() {
                 Log.d(TAG, "Falha ao definir valor para o banco de dados: ${it.message}")
             }
     }
+}
 
-    class User(val uid: String, val username: String, val profileImageUrl: String)
+class User(val uid: String, val username: String, val profileImageUrl: String){
+    constructor() : this("","", "")
 }
