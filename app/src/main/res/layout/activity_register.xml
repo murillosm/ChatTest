@@ -5,24 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/material_dynamic_primary80"
-    tools:context=".MainActivity">
+    tools:context=".view.RegisterActivity">
 
     <EditText
         android:id="@+id/txtUserName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:autofillHints=""
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
         android:hint="@string/username"
-        android:paddingLeft="20dp"
         android:inputType="text"
+        android:paddingLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/btphoto" />
 
     <EditText
         android:id="@+id/txtEmail"
@@ -74,5 +74,32 @@
         app:layout_constraintEnd_toEndOf="@+id/btRegister"
         app:layout_constraintStart_toStartOf="@+id/btRegister"
         app:layout_constraintTop_toBottomOf="@+id/btRegister" />
+
+    <Button
+        android:id="@+id/btphoto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_select_photo_button"
+        android:text="Select Photo"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageview"
+        app:civ_border_width="4dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btphoto"
+        app:layout_constraintEnd_toEndOf="@+id/btphoto"
+        app:layout_constraintStart_toStartOf="@+id/btphoto"
+        app:layout_constraintTop_toTopOf="@+id/btphoto" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

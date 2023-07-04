@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatTest"
         tools:targetApi="31">
-
+        <activity
+            android:name=".view.LatestMessagesActivity"
+            android:exported="false" />
         <activity
             android:name=".view.RegisterActivity"
             android:exported="true">
