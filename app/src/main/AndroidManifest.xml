@@ -13,9 +13,6 @@
         android:theme="@style/Theme.ChatTest"
         tools:targetApi="31">
         <activity
-            android:name=".view.messages.ChatLogActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.messages.LatestMessagesActivity"
             android:exported="true">
             <intent-filter>
@@ -38,6 +35,13 @@
             android:exported="false" />
         <activity
             android:name=".view.messages.NewMessageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.messages.LatestMessagesActivity" />
+        </activity>
+        <activity
+            android:name=".view.messages.ChatLogActivity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
