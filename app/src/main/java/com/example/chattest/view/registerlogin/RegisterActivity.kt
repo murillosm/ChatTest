@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.chattest.view
+package com.example.chattest.view.registerlogin
 
 import android.app.Activity
 import android.content.Intent
@@ -11,6 +11,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chattest.databinding.ActivityRegisterBinding
+import com.example.chattest.view.messages.LatestMessagesActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage

@@ -1,4 +1,4 @@
-package com.example.chattest.view
+package com.example.chattest.view.messages
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chattest.R
 import com.example.chattest.databinding.ActivityLatestMessagesBinding
+import com.example.chattest.view.registerlogin.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LatestMessagesActivity : AppCompatActivity() {

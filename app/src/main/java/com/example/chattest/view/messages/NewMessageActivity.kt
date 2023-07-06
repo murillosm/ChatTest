@@ -1,11 +1,13 @@
-package com.example.chattest.view
+package com.example.chattest.view.messages
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chattest.R
 import com.example.chattest.databinding.ActivityNewMessageBinding
+import com.example.chattest.view.registerlogin.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -24,7 +26,7 @@ class NewMessageActivity : AppCompatActivity() {
         binding = ActivityNewMessageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Select User"
+        supportActionBar?.title = "Selecione o usuário"
 
 //        val adapter = GroupAdapter<GroupieViewHolder>()
 //
@@ -56,18 +58,17 @@ class NewMessageActivity : AppCompatActivity() {
                     }
                 }
 
-                /*adapter.setOnItemClickListener { item, view ->
+                adapter.setOnItemClickListener { item, view ->
 
-                    val userItem = item as UserItem
+                    //val userItem = item as UserItem
 
+                    //val intent = Intent()
                     val intent = Intent(view.context, ChatLogActivity::class.java)
-        //          intent.putExtra(USER_KEY,  userItem.user.username)
-                    intent.putExtra(USER_KEY, userItem.user)
+                    //intent.putExtra(USER_KEY,  userItem.user.username)
+                    //intent.putExtra(USER_KEY, userItem.user)
                     startActivity(intent)
-
-                    finish()
-
-                }*/
+                    //finish()
+                }
 
                 binding.rvNewmessage.adapter = adapter
            }
