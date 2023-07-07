@@ -28,14 +28,6 @@ class NewMessageActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Selecione o usuário"
 
-//        val adapter = GroupAdapter<GroupieViewHolder>()
-//
-//        adapter.add(UserItem())
-//        adapter.add(UserItem())
-//        adapter.add(UserItem())
-//
-//        binding.rvNewmessage.adapter = adapter
-
         fetchUsers()
     }
 
@@ -62,10 +54,8 @@ class NewMessageActivity : AppCompatActivity() {
 
                     val userItem = item as UserItem
 
-                    //val intent = Intent()
                     val intent = Intent(view.context, ChatLogActivity::class.java)
 
-                    //intent.putExtra(USER_KEY,  userItem.user.username)
                     intent.putExtra(USER_KEY, userItem.user)
                     startActivity(intent)
                     finish()

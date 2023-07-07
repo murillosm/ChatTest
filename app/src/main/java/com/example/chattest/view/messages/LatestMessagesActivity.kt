@@ -19,83 +19,11 @@ class LatestMessagesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_latest_messages)
         binding = ActivityLatestMessagesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //binding.rvMessages.adapter = adapter
-        //binding.rvMessages.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-
-        /*adapter.setOnItemClickListener { item, view ->
-            Log.d(TAG, "123")
-            val intent = Intent(this, ChatLogActivity::class.java)
-
-            val row = item as LatestMessageRow
-            intent.putExtra(NewMessageActivity.USER_KEY, row.chatPartnerUser)
-            startActivity(intent)
-        }*/
-
-        //listenForLatestMessages()
-
-        //fetchCurrentUser()
-
         verifyUserIsLoggedIn()
     }
-
-    //val latestMessagesMap = HashMap<String, ChatMessage>()
-
-    /*private fun refreshRecyclerViewMessages() {
-        adapter.clear()
-        latestMessagesMap.values.forEach {
-            adapter.add(LatestMessageRow(it))
-        }
-    }*/
-
-    /*private fun listenForLatestMessages() {
-        val fromId = FirebaseAuth.getInstance().uid
-        val ref = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId")
-        ref.addChildEventListener(object: ChildEventListener {
-            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                val chatMessage = p0.getValue(ChatMessage::class.java) ?: return
-                latestMessagesMap[p0.key!!] = chatMessage
-                refreshRecyclerViewMessages()
-            }
-
-            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-                val chatMessage = p0.getValue(ChatMessage::class.java) ?: return
-                latestMessagesMap[p0.key!!] = chatMessage
-                refreshRecyclerViewMessages()
-            }
-
-            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-
-            }
-            override fun onChildRemoved(p0: DataSnapshot) {
-
-            }
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-        })
-    }*/
-
-    //private val adapter = GroupAdapter<RecyclerView.ViewHolder>()
-
-    /*private fun fetchCurrentUser() {
-        val uid = FirebaseAuth.getInstance().uid
-        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
-        ref.addListenerForSingleValueEvent(object: ValueEventListener {
-
-            override fun onDataChange(p0: DataSnapshot) {
-                currentUser = p0.getValue(User::class.java)
-                Log.d("LatestMessages", "Current user ${currentUser?.profileImageUrl}")
-            }
-
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-        })
-    }*/
 
     private fun verifyUserIsLoggedIn() {
         val uid = FirebaseAuth.getInstance().uid

@@ -11,6 +11,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chattest.databinding.ActivityRegisterBinding
+import com.example.chattest.model.User
 import com.example.chattest.view.messages.LatestMessagesActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -77,9 +78,7 @@ class RegisterActivity : AppCompatActivity() {
      * Método para cadastrar novos usuários
      */
     fun performRegister() {
-        //val tUserName = findViewById<TextView>(id.txtUserName)
-        //val userName = tUserName.text.toString()
-        val userName = binding.txtUserName.text.toString()
+        //val userName = binding.txtUserName.text.toString()
         val email = binding.txtEmail.text.toString()
         val password = binding.txtPassword.text.toString()
         if(email.isEmpty() || password.isEmpty()){
@@ -88,8 +87,8 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         Log.d(TAG, "E-mail is: " + email)
-        Log.d(TAG, "Password:  $password")
-        Log.d(TAG, "UserName: " + userName)
+        //Log.d(TAG, "Password:  $password")
+        //Log.d(TAG, "UserName: " + userName)
 
         //Firebase Authentication para criar um usuário com e-mail e senha
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
@@ -99,8 +98,8 @@ class RegisterActivity : AppCompatActivity() {
 
                 uploadImageToFirebaseStorage()
 
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
+                //val intent = Intent(this, LoginActivity::class.java)
+                //startActivity(intent)
             }
             .addOnFailureListener{
                 Log.d("Main", "Falha ao criar usuário: ${it.message}")
@@ -113,45 +112,18 @@ class RegisterActivity : AppCompatActivity() {
         val filename = UUID.randomUUID().toString()
         val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
 
+        ref.putFile(selectedPhotoUri!!)
+            .addOnSuccessListener {
+                Log.d(TAG, "Imagem enviada com sucesso: ${it.metadata?.path}")
 
-        //if (selectedPhotoUri == null){
-            //Log.d(TAG, "Changing to the default image")
-
-           // val profileIcon = getBitmap(R.drawable.account_circle)
-
-            //val baos = ByteArrayOutputStream()
-            //profileIcon.compress(Bitmap.CompressFormat.PNG, 100, baos)
-            /*val data = baos.toByteArray()
-
-            ref.putBytes(data)
-                .addOnSuccessListener {
-                    Log.d(TAG, "Successfully uploaded image: ${it.metadata?.path}")
-
-                    ref.downloadUrl.addOnSuccessListener {
-                        Log.d(TAG, "File Location: $it")
-
-                        saveUserToFirebaseDatabase(it.toString())
-                    }
+                ref.downloadUrl.addOnSuccessListener {
+                    Log.d(TAG, "Localização de arquivo: $it")
+                    saveUserToFirebaseDatabase(it.toString())
                 }
-                .addOnFailureListener {
-                    Log.d(TAG, "Failed to upload image to storage: ${it.message}")
-                }*/
-       // } else {
-
-            ref.putFile(selectedPhotoUri!!)
-                .addOnSuccessListener {
-                    Log.d(TAG, "Imagem enviada com sucesso: ${it.metadata?.path}")
-
-                    ref.downloadUrl.addOnSuccessListener {
-                        Log.d(TAG, "Localização de arquivo: $it")
-
-                        saveUserToFirebaseDatabase(it.toString())
-                   }
-                }
-                .addOnFailureListener {
-                 //   Log.d(TAG, "Falha ao carregar a imagem para o armazenamento: ${it.message}")
-                }
-        //}
+            }
+            .addOnFailureListener {
+               Log.d(TAG, "Falha ao carregar a imagem para o armazenamento: ${it.message}")
+            }
     }
 
     private fun saveUserToFirebaseDatabase(profileImageUrl: String) {
@@ -171,8 +143,4 @@ class RegisterActivity : AppCompatActivity() {
                 Log.d(TAG, "Falha ao definir valor para o banco de dados: ${it.message}")
             }
     }
-}
-
-class User(val uid: String, val username: String, val profileImageUrl: String){
-    constructor() : this("","", "")
 }
