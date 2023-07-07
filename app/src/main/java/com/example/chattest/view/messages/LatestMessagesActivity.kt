@@ -2,18 +2,26 @@ package com.example.chattest.view.messages
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chattest.R
 import com.example.chattest.databinding.ActivityLatestMessagesBinding
+import com.example.chattest.model.User
 import com.example.chattest.view.registerlogin.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
 
 class LatestMessagesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLatestMessagesBinding
     companion object {
-        //var currentUser: User? = null
+        var currentUser: User? = null
         val TAG = "LatestMessages"
     }
 
@@ -21,6 +29,8 @@ class LatestMessagesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLatestMessagesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        fetchCurrentUser()
 
         verifyUserIsLoggedIn()
     }
@@ -53,6 +63,24 @@ class LatestMessagesActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private val adapter = GroupAdapter<GroupieViewHolder>()
+
+    private fun fetchCurrentUser() {
+        val uid = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        ref.addListenerForSingleValueEvent(object: ValueEventListener {
+
+            override fun onDataChange(p0: DataSnapshot) {
+                currentUser = p0.getValue(User::class.java)
+                Log.d(TAG, "Usuário atual ${currentUser?.profileImageUrl}")
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
