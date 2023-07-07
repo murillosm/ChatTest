@@ -11,6 +11,7 @@ import com.example.chattest.R
 import com.example.chattest.databinding.ActivityLatestMessagesBinding
 import com.example.chattest.model.ChatMessage
 import com.example.chattest.model.User
+import com.example.chattest.network.ProfileInfo
 import com.example.chattest.view.registerlogin.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
@@ -67,7 +68,7 @@ class LatestMessagesActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             R.id.profile_info -> {
-                //val intent = Intent(this, ProfileInfo::class.java)
+                val intent = Intent(this, ProfileInfo::class.java)
                 startActivity(intent)
             }
             R.id.menu_new_message -> {

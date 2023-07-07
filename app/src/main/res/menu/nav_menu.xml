@@ -3,14 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/profile_info"
+        android:icon="@drawable/account_circle"
         android:title="@string/profile"
         app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/menu_new_message"
+        android:icon="@drawable/chat_icon"
         android:title="@string/new_message"
         app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/menu_sign_out"
+        android:icon="@drawable/leave_icon"
         android:title="@string/sign_out"
         app:showAsAction="ifRoom"/>
 

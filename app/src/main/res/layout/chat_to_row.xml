@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@drawable/rounded_edittext_register_login"
+        android:background="@drawable/shape_bg_outgoing_bubble"
         android:maxWidth="240dp"
         android:padding="16dp"
         android:text="Esta é a minha mensagem que será agrupada em várias linhas e continuará"

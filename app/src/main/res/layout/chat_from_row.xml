@@ -14,7 +14,7 @@
         android:layout_marginStart="8dp"
         android:text="Esta é a minha mensagem que será agrupada em várias linhas e continuará"
         android:maxWidth="240dp"
-        android:background="@drawable/rounded_edittext_register_login"
+        android:background="@drawable/shape_bg_incoming_bubble"
         android:padding="16dp"
         app:layout_constraintStart_toEndOf="@+id/ivChatFromRow"
         app:layout_constraintTop_toTopOf="@+id/ivChatFromRow" />

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ChatTest"
         tools:targetApi="31">
         <activity
+            android:name=".network.ProfileInfo"
+            android:exported="false" />
+        <activity
             android:name=".view.messages.LatestMessagesActivity"
             android:exported="true">
             <intent-filter>
@@ -23,7 +26,7 @@
         </activity>
         <activity
             android:name=".view.registerlogin.RegisterActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".view.registerlogin.LoginActivity"
             android:exported="false" />
