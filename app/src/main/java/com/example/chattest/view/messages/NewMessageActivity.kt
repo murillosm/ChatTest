@@ -73,7 +73,7 @@ class NewMessageActivity : AppCompatActivity() {
 class UserItem(val user: User): Item<GroupieViewHolder>() {
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        val usernameTextView = viewHolder.itemView.findViewById<TextView>(R.id.username_textview_new_message)
+        val usernameTextView = viewHolder.itemView.findViewById<TextView>(R.id.textViewUsername)
         //viewHolder.itemView.username_textview_new_message.text = user.username
         usernameTextView.text = user.username
 
