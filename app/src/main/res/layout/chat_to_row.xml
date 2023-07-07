@@ -16,6 +16,7 @@
         android:maxWidth="240dp"
         android:padding="16dp"
         android:text="Esta é a minha mensagem que será agrupada em várias linhas e continuará"
+
         app:layout_constraintEnd_toStartOf="@+id/ivChatToRow"
         app:layout_constraintTop_toTopOf="@+id/ivChatToRow" />
 

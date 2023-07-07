@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_primary80"
-    tools:context=".MainActivity">
+    android:background="@color/material_dynamic_primary80">
 
     <EditText
         android:id="@+id/txtEmail"
@@ -50,12 +49,18 @@
         app:layout_constraintStart_toStartOf="@+id/txtPassword"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
+
     <TextView
         android:id="@+id/tNoAccount"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="Não possui uma conta?"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/btLogin"
         app:layout_constraintStart_toStartOf="@+id/btLogin"
         app:layout_constraintTop_toBottomOf="@+id/btLogin" />
